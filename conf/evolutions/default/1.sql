@@ -3,32 +3,24 @@
 
 # --- !Ups
 
-create table channel (
-  id                        bigint auto_increment not null,
+create table clients (
+  id                        bigint not null,
   updated_by                bigint,
   created_by                bigint,
   created                   datetime,
   updated                   datetime,
   name                      varchar(256) not null,
-  constraint uq_channel_updated_by unique (updated_by),
-  constraint uq_channel_created_by unique (created_by),
-  constraint pk_channel primary key (id))
-;
-
-create table product (
-  id                        bigint auto_increment not null,
-  updated_by                bigint,
-  created_by                bigint,
-  created                   datetime,
-  updated                   datetime,
-  name                      varchar(256) not null,
-  constraint uq_product_updated_by unique (updated_by),
-  constraint uq_product_created_by unique (created_by),
-  constraint pk_product primary key (id))
+  last_name                 varchar(256) not null,
+  maiden_name               varchar(256) not null,
+  adress                    varchar(256) not null,
+  email                     varchar(256) not null,
+  constraint uq_clients_updated_by unique (updated_by),
+  constraint uq_clients_created_by unique (created_by),
+  constraint pk_clients primary key (id))
 ;
 
 create table producto (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   updated_by                bigint,
   created_by                bigint,
   created                   datetime,
@@ -166,7 +158,7 @@ create table user_role (
   s_role_id                      bigint not null,
   constraint pk_user_role primary key (user_id, s_role_id))
 ;
-create sequence producto_seq;
+create sequence clients_seq;
 
 create sequence s_action_seq;
 
@@ -184,58 +176,54 @@ create sequence settings_seq;
 
 create sequence user_seq;
 
-alter table channel add constraint fk_channel_updatedBy_1 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_channel_updatedBy_1 on channel (updated_by);
-alter table channel add constraint fk_channel_createdBy_2 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_channel_createdBy_2 on channel (created_by);
-alter table product add constraint fk_product_updatedBy_3 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_product_updatedBy_3 on product (updated_by);
-alter table product add constraint fk_product_createdBy_4 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_product_createdBy_4 on product (created_by);
-alter table producto add constraint fk_producto_updatedBy_5 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_producto_updatedBy_5 on producto (updated_by);
-alter table producto add constraint fk_producto_createdBy_6 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_producto_createdBy_6 on producto (created_by);
-alter table s_action add constraint fk_s_action_updatedBy_7 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_s_action_updatedBy_7 on s_action (updated_by);
-alter table s_action add constraint fk_s_action_createdBy_8 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_s_action_createdBy_8 on s_action (created_by);
-alter table s_app add constraint fk_s_app_updatedBy_9 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_s_app_updatedBy_9 on s_app (updated_by);
-alter table s_app add constraint fk_s_app_createdBy_10 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_s_app_createdBy_10 on s_app (created_by);
-alter table s_module add constraint fk_s_module_updatedBy_11 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_s_module_updatedBy_11 on s_module (updated_by);
-alter table s_module add constraint fk_s_module_createdBy_12 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_s_module_createdBy_12 on s_module (created_by);
-alter table s_permission add constraint fk_s_permission_updatedBy_13 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_s_permission_updatedBy_13 on s_permission (updated_by);
-alter table s_permission add constraint fk_s_permission_createdBy_14 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_s_permission_createdBy_14 on s_permission (created_by);
-alter table s_permission add constraint fk_s_permission_role_15 foreign key (role_id) references s_role (id) on delete restrict on update restrict;
-create index ix_s_permission_role_15 on s_permission (role_id);
-alter table s_permission add constraint fk_s_permission_module_16 foreign key (module_id) references s_module (id) on delete restrict on update restrict;
-create index ix_s_permission_module_16 on s_permission (module_id);
-alter table s_role add constraint fk_s_role_updatedBy_17 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_s_role_updatedBy_17 on s_role (updated_by);
-alter table s_role add constraint fk_s_role_createdBy_18 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_s_role_createdBy_18 on s_role (created_by);
-alter table s_token add constraint fk_s_token_updatedBy_19 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_s_token_updatedBy_19 on s_token (updated_by);
-alter table s_token add constraint fk_s_token_createdBy_20 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_s_token_createdBy_20 on s_token (created_by);
-alter table s_token add constraint fk_s_token_user_21 foreign key (user_id) references user (id) on delete restrict on update restrict;
-create index ix_s_token_user_21 on s_token (user_id);
-alter table s_token add constraint fk_s_token_app_22 foreign key (app_license_key) references s_app (license_key) on delete restrict on update restrict;
-create index ix_s_token_app_22 on s_token (app_license_key);
-alter table settings add constraint fk_settings_updatedBy_23 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_settings_updatedBy_23 on settings (updated_by);
-alter table settings add constraint fk_settings_createdBy_24 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_settings_createdBy_24 on settings (created_by);
-alter table user add constraint fk_user_updatedBy_25 foreign key (updated_by) references user (id) on delete restrict on update restrict;
-create index ix_user_updatedBy_25 on user (updated_by);
-alter table user add constraint fk_user_createdBy_26 foreign key (created_by) references user (id) on delete restrict on update restrict;
-create index ix_user_createdBy_26 on user (created_by);
+alter table clients add constraint fk_clients_updatedBy_1 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_clients_updatedBy_1 on clients (updated_by);
+alter table clients add constraint fk_clients_createdBy_2 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_clients_createdBy_2 on clients (created_by);
+alter table producto add constraint fk_producto_updatedBy_3 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_producto_updatedBy_3 on producto (updated_by);
+alter table producto add constraint fk_producto_createdBy_4 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_producto_createdBy_4 on producto (created_by);
+alter table s_action add constraint fk_s_action_updatedBy_5 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_s_action_updatedBy_5 on s_action (updated_by);
+alter table s_action add constraint fk_s_action_createdBy_6 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_s_action_createdBy_6 on s_action (created_by);
+alter table s_app add constraint fk_s_app_updatedBy_7 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_s_app_updatedBy_7 on s_app (updated_by);
+alter table s_app add constraint fk_s_app_createdBy_8 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_s_app_createdBy_8 on s_app (created_by);
+alter table s_module add constraint fk_s_module_updatedBy_9 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_s_module_updatedBy_9 on s_module (updated_by);
+alter table s_module add constraint fk_s_module_createdBy_10 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_s_module_createdBy_10 on s_module (created_by);
+alter table s_permission add constraint fk_s_permission_updatedBy_11 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_s_permission_updatedBy_11 on s_permission (updated_by);
+alter table s_permission add constraint fk_s_permission_createdBy_12 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_s_permission_createdBy_12 on s_permission (created_by);
+alter table s_permission add constraint fk_s_permission_role_13 foreign key (role_id) references s_role (id) on delete restrict on update restrict;
+create index ix_s_permission_role_13 on s_permission (role_id);
+alter table s_permission add constraint fk_s_permission_module_14 foreign key (module_id) references s_module (id) on delete restrict on update restrict;
+create index ix_s_permission_module_14 on s_permission (module_id);
+alter table s_role add constraint fk_s_role_updatedBy_15 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_s_role_updatedBy_15 on s_role (updated_by);
+alter table s_role add constraint fk_s_role_createdBy_16 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_s_role_createdBy_16 on s_role (created_by);
+alter table s_token add constraint fk_s_token_updatedBy_17 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_s_token_updatedBy_17 on s_token (updated_by);
+alter table s_token add constraint fk_s_token_createdBy_18 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_s_token_createdBy_18 on s_token (created_by);
+alter table s_token add constraint fk_s_token_user_19 foreign key (user_id) references user (id) on delete restrict on update restrict;
+create index ix_s_token_user_19 on s_token (user_id);
+alter table s_token add constraint fk_s_token_app_20 foreign key (app_license_key) references s_app (license_key) on delete restrict on update restrict;
+create index ix_s_token_app_20 on s_token (app_license_key);
+alter table settings add constraint fk_settings_updatedBy_21 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_settings_updatedBy_21 on settings (updated_by);
+alter table settings add constraint fk_settings_createdBy_22 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_settings_createdBy_22 on settings (created_by);
+alter table user add constraint fk_user_updatedBy_23 foreign key (updated_by) references user (id) on delete restrict on update restrict;
+create index ix_user_updatedBy_23 on user (updated_by);
+alter table user add constraint fk_user_createdBy_24 foreign key (created_by) references user (id) on delete restrict on update restrict;
+create index ix_user_createdBy_24 on user (created_by);
 
 
 
@@ -255,9 +243,7 @@ alter table user_role add constraint fk_user_role_s_role_02 foreign key (s_role_
 
 SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table if exists channel;
-
-drop table if exists product;
+drop table if exists clients;
 
 drop table if exists producto;
 
@@ -285,7 +271,7 @@ drop table if exists user_role;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 
-drop sequence if exists producto_seq;
+drop sequence if exists clients_seq;
 
 drop sequence if exists s_action_seq;
 

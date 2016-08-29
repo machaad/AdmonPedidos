@@ -23,7 +23,7 @@
             }
         }
     }]);
-    
+
     app.controller('MenuCtrl', [
         '$scope','$timeout','$mdSidenav','$log','AuthService','$localStorage','MenuService',
         function ($scope, $timeout, $mdSidenav, $log,AuthService,$localStorage,MenuService) {
@@ -42,8 +42,8 @@
             apkManager : {icon : 'people',state:"app.apkManagerList"},
             user : {icon : 'people',state:"app.userList"},
             role : {icon : 'assignment_ind',state:"app.roleList"},
-            producto : {icon : 'label',state:"app.producto"},
-            channel :  {icon : 'label',state:"app.channel"},
+            producto : {icon : 'assignment',state:"app.producto"},
+            clients :  {icon : 'contact_phone',state:"app.clients"},
             settings :  {icon : 'settings',state:"app.settings"}
         };
         $scope.menu = [];

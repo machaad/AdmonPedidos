@@ -41,10 +41,10 @@
             controller : "EtiquetasCtrl"
         });
 
-        $stateProvider.state('app.channel',{
-            url:'/channel',
-            templateUrl:'app/channel/channel.list.html',
-            controller : "ChannelCtrl"
+        $stateProvider.state('app.clients',{
+            url:'/clients',
+            templateUrl:'app/clients/clients.list.html',
+            controller : "ClientsListCtrl"
         });
 
 

@@ -20,7 +20,7 @@
         'app.settings',
         'app.etiquetas',
         'app.producto',
-        'app.channel'
+        'app.clients'
     ]);
 
     app.config([

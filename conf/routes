@@ -14,19 +14,17 @@ DELETE        /api/v1/crud/user/:id                      controllers.UserCtrl.de
 GET           /api/v1/user/passwordRecovery              controllers.UserCtrl.passwordRecovery(email : String)
 
 GET           /api/v1/crud/producto                      controllers.ProductoCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
+#GET           /api/v1/crud/producto/:id                  controllers.ProductoCtrl.get(id : Long)
+POST          /api/v1/crud/producto                      controllers.ProductoCtrl.post()
+PUT           /api/v1/crud/producto/:id                  controllers.ProductoCtrl.put(id : Long)
+DELETE        /api/v1/crud/producto/:id                  controllers.ProductoCtrl.delete(id : Long)
 
-GET           /api/v1/crud/etiquetas 					controllers.EtiquetasCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
-GET           /api/v1/crud/etiquetas/:id                controllers.EtiquetasCtrl.get(id : Long)
-POST          /api/v1/crud/etiquetas                    controllers.EtiquetasCtrl.post()
-PUT           /api/v1/crud/etiquetas/                   controllers.EtiquetasCtrl.put()
-DELETE        /api/v1/crud/etiquetas/:id                controllers.EtiquetasCtrl.delete(id : Long)
 
-GET           /api/v1/crud/channel                       controllers.ChannelCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
-GET           /api/v1/crud/channel/:id                   controllers.ChannelCtrl.get(id : Long)
-POST          /api/v1/crud/channel                       controllers.ChannelCtrl.post()
-PUT           /api/v1/crud/channel/:id                   controllers.ChannelCtrl.put(id : Long)
-DELETE        /api/v1/crud/channel/:id                   controllers.ChannelCtrl.delete(id : Long)
-
+GET           /api/v1/crud/clients                       controllers.ClientsCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
+#GET           /api/v1/crud/clients/:id                   controllers.ClientsCtrl.get(id : Long)
+#POST          /api/v1/crud/clients                       controllers.ClientsCtrl.post()
+#PUT           /api/v1/crud/clients/:id                   controllers.ClientsCtrl.put(id : Long)
+#DELETE        /api/v1/crud/clients/:id                   controllers.ClientsCtrl.delete(id : Long)
 
 GET           /api/v1/crud/role                          controllers.RoleCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
 GET           /api/v1/crud/role/:id                      controllers.RoleCtrl.get(id : Long)

@@ -1,10 +1,15 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import utils.json.View;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -14,6 +19,7 @@ public final  class Producto extends BaseEntity {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(View.Public.class)
     private Long id;
 
@@ -29,7 +35,7 @@ public final  class Producto extends BaseEntity {
     @JsonView(View.Public.class)
     private String sku;
 
-    
+
 	public String getDescription() {
 		return description;
 	}

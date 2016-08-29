@@ -23,7 +23,7 @@ public class StartupData {
             createSuperUser();
             createSettings();
             createProducts();
-            createChennel();
+            createClients();
             createDummyUsers();
             createDummyRoles();
         }else{
@@ -87,7 +87,7 @@ public class StartupData {
         allModules.add(module);
 
         module = new SecurityModule();
-        module.setId("channel");
+        module.setId("clients");
         module.setActions(allActions);
         module.save();
         allModules.add(module);
@@ -95,19 +95,12 @@ public class StartupData {
 
     }
 
-    private void createChennel(){
-
-    for(int i = 1; i <= 100; i ++) {
-        String name = "Channel" + i;
-        Channel channel= new Channel();
-        channel.setId((long ) i);
-        channel.setName(name);
-        channel.save();
-         }
+    private void createClients(){
+      ;
     }
 
     private void createProducts(){
-      for(int i = 1; i <= 100; i ++) {
+      for(int i = 1; i <= 10; i ++) {
           String name = "Producto" + i;
           String desc = "description" + i;
           String sku = "SKU" + i;
@@ -145,7 +138,7 @@ public class StartupData {
     }
 
     private void createDummyUsers(){
-        for(int i = 1; i <= 100; i ++) {
+        for(int i = 1; i <= 10; i ++) {
             String name = "user" + i;
             User user = new User(name + "@demo.com", "xxxxxx", name,"lastname" + i );
             user.save();

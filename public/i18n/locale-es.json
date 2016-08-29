@@ -12,8 +12,8 @@
       "settings" : "Configuración",
       "etiquetas" : "Etiquetas",
       "producto" : "Productos",
-       "channel" : "Canales",
-    
+      "channel" : "Canales",
+      "clients" : "Clientes",
       "apkManagerList" : "Administrar de Aplicaciones"
     }
   },
@@ -71,8 +71,8 @@
     "launcherClass" : "Clase launcher",
     "desc" : "Descripcion",
     "sku" : "SKU",
- 
- 
+
+
     "version" : "Versión"
   },
   "tooltip" : {
@@ -121,6 +121,14 @@
    },
    "user" : {
      "title" : "Usuario"
+   },
+   "producto" : {
+     "title" : "Producto"
+   }   ,
+   "clients" : {
+     "title" : "Cliente"
    }
+
+
  }
 }
