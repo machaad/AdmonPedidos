@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" ng-app="appName">
+<head>
+  <meta charset="utf-8">
+  <title>{{'app.name' | translate}}</title>
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="lib/angular-material-icons/angular-material-icons.css">
+  <link rel="stylesheet" href="lib/angular-material-data-table/dist/md-data-table.min.css">
+
+  <script src="lib/angularjs/angular.js"></script>
+  <!--Angular material dependecies-->
+  <script src="lib/angularjs/angular-sanitize.min.js"></script>
+  <script src="lib/angularjs/angular-animate.min.js"></script>
+  <script src="lib/angularjs/angular-aria.min.js"></script>
+  <script src="lib/angularjs/angular-messages.min.js"></script>
+  <script src="lib/angular-material/angular-material.min.js"></script>
+  <script src="lib/angular-material-icons/angular-material-icons.min.js"></script>
+  <script src="lib/angular-material-data-table/dist/md-data-table.min.js"></script>
+  <!--Non angular material dependencies-->
+  <script src="lib/angular-ui-router/angular-ui-router.min.js" ></script>
+  <script src="lib/angularjs/angular-resource.min.js" ></script>
+  <script src="lib/ngstorage/ngStorage.min.js" ></script>
+  <script src="lib/angular-translate/angular-translate.min.js" ></script>
+  <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js" ></script>
+  <script src="lib/angular-translate-handler-log/angular-translate-handler-log.js" ></script>
+  <script src="lib/underscore/underscore-min.js" ></script>
+  <script src="lib/angular-underscore-module/angular-underscore-module.js" ></script>
+  <!--App modules-->
+  <script src="app.js"></script>
+  <script src="directives.js"></script>
+  <script src="services.js"></script>
+  <script src="routes.js"></script>
+  <script src="settings.js"></script>
+  <script src="app/menu/menu.module.js"></script>
+  <script src="app/login/login.module.js"></script>
+  <script src="app/user/user.module.js"></script>
+  <script src="app/role/role.module.js"></script>
+  <script src="app/etiquetas/etiquetas.module.js"></script>
+  <script src="app/channel/channel.module.js"></script>
+  <script src="app/settings/settings.module.js"></script>
+  <script src="app/producto/producto.module.js"></script>
+  
+</head>
+<body>
+  <div ui-view></div>
+</body>
+</html>
+

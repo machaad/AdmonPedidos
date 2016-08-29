@@ -1,0 +1,46 @@
+<md-toolbar ng-hide="_toolbar.showSearch || selected.length" class="md-table-toolbar md-default">
+    <div class="md-toolbar-tools">
+        <span>{{title}}</span>
+        <div flex></div>
+        <md-button ng-click="_toolbar.toggleSearch()" aria-label="{{'action.search' | translate}}">
+            <ng-md-icon icon="search"></ng-md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-toolbar ng-show="_toolbar.showSearch && !selected.length" class="md-table-toolbar md-default">
+    <div class="md-toolbar-tools">
+        <md-button aria-label="Search" ng-click="showSearch = !showSearch" aria-label="{{'action.search' | translate}}">
+            <ng-md-icon icon="search"></ng-md-icon>
+        </md-button>
+        <md-input-container md-theme="input" flex class="toolbar-search-fix">
+            <label>&nbsp;</label>
+            <input ng-model="query.search" placeholder="{{'action.search' | translate}}">
+        </md-input-container>
+
+        <md-button ng-click="_toolbar.toggleSearch()" aria-label="{{'action.back' | translate}}">
+            <ng-md-icon icon="close"></ng-md-icon>
+        </md-button>
+    </div>
+
+</md-toolbar>
+<md-toolbar class="md-table-toolbar md-hue-3" ng-show="selected.length == 1">
+    <div class="md-toolbar-tools">
+        <span>{{selected.length}} {{'label.selectedRow' | translate}}</span>
+        <span flex></span>
+        <md-button class="md-icon-button"
+                   aria-label="{{'action.edit' | translate}}"
+                   ng-click="onEdit({$event : $event, target : selected[0]})" ng-show="action.edit">
+            <ng-md-icon icon="edit" style="fill: white"></ng-md-icon>
+        </md-button>
+        <md-button class="md-icon-button"
+                   aria-label="{{'action.delete' | translate}}"
+                   ng-click="onDelete({$event : $event, target : selected[0]})" ng-show="action.delete">
+            <ng-md-icon icon="delete" style="fill: white"></ng-md-icon>
+        </md-button>
+    </div>
+</md-toolbar>
+<md-toolbar class="md-table-toolbar md-hue-6" ng-show="selected.length > 1">
+    <div class="md-toolbar-tools">
+        <span>{{selected.length}}  {{'label.selectedRows' | translate}}</span>
+    </div>
+</md-toolbar>

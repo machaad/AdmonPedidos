@@ -1,0 +1,80 @@
+<md-dialog flex="50" >
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{'view.role.title' | translate}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <ng-md-icon icon="close" style="fill: white"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content  layout-padding>
+                <form name="entityForm" ng-submit="submit()">
+                    <md-input-container class="md-block">
+                        <label>{{'label.name' | translate}}</label>
+                        <input name="name"
+                               ng-model="entity.name"
+                               required
+                               type="text"
+                               md-autofocus>
+                        <div ng-messages="entityForm.password.$error">
+                            <div ng-messages-include="template/default.messages.html"></div>
+                        </div>
+                    </md-input-container>
+                    <md-toolbar>
+                        <div class="md-toolbar-tools">
+                            <h2>{{'label.permissions' | translate}}</h2>
+                        </div>
+                    </md-toolbar>
+                    <div class="md-whiteframe-3dp">
+                    <md-content md-theme="docs-dark" layout-padding>
+
+                        <div layout="row" layout-align="start start">
+
+                            <md-input-container flex="20">
+                                <label>{{'label.module' | translate}}</label>
+                                <md-select ng-model="selectedModule" ng-model-options="{trackBy: '$value.id'}">
+                                    <md-option ng-value="item" ng-repeat="item in allModules">{{ item.id }}</md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-button class="md-fab md-mini"
+                                       ng-click="addPermission()">
+                                <ng-md-icon
+                                        icon="add"
+                                        style="fill: white"></ng-md-icon>
+                            </md-button>
+                        </div>
+                    </md-content>
+                    <md-table-container ng-show="entity.permissions.length > 0">
+                        <table md-table>
+                            <thead md-head>
+                            <tr md-row>
+                                <th md-column width="30%">{{'label.module' | translate}}</th>
+                                <th md-column width="80%">{{'label.excludedActions' | translate}}</th>
+                                <th md-column width="20%">{{'action.delete' | translate}}</th>
+                            </tr>
+                            </thead>
+                            <tbody md-body>
+                            <tr md-row ng-repeat="permission in entity.permissions track by permission.module.id">
+                                <td md-cell>{{permission.module.id}}</td>
+                                <td md-cell>
+                                    <md-select ng-model="permission.excludedActions" ng-model-options="{trackBy: '$value.id'}" multiple="true">
+                                    <md-option ng-value="item" ng-repeat="item in permission.module.actions">{{ item.id }}</md-option>
+                                    </md-select>
+                                </td>
+                                <td md-cell layout-align="center center"><ng-md-icon ng-click="removePermission(permission)" icon="delete" style="fill: gray"></ng-md-icon></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+                    </div>
+                </form>
+
+</md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <span flex></span>
+        <md-button ng-click="cancel()">{{'action.cancel' | translate}}</md-button>
+        <md-button md-no-ink class="md-primary" ng-disabled="entityForm.$invalid" ng-click="submit()">{{'action.cancel' | translate}}</md-button>
+    </md-dialog-actions>
+</md-dialog>

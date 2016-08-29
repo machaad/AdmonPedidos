@@ -1,0 +1,41 @@
+<md-dialog flex="50" >
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{'view.etiquetas.title' | translate}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <ng-md-icon icon="close" style="fill: white"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content layout-padding >
+        <form name="entityForm" ng-submit="submit()">
+
+            <h4 class="md-title">{{"view.etiquetas.formMsg"|translate}}</h4>
+
+            <md-input-container class="md-block">
+                <label>{{'label.name' | translate}}</label>
+                <input type="text" name="name" ng-model="entity.name" required>
+                <div ng-messages="entityForm.name.$error">
+                    <div ng-messages-include="template/default.messages.html"></div>
+                </div>
+            </md-input-container>
+
+        </form>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <span flex></span>
+        <md-button ng-click="cancel()">
+            {{'action.cancel' | translate}}
+        </md-button>
+        <md-button md-no-ink class="md-primary" ng-click="submit()"
+                   ng-disabled="entityForm.$invalid" >
+            {{'action.ok' | translate}}
+        </md-button>
+    </md-dialog-actions>
+
+</md-dialog>

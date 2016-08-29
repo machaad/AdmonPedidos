@@ -1,0 +1,40 @@
+<md-content layout="column" flex>
+    <md-card>
+        <ix-table-toolbar
+                title="{{'menu.app.userList' | translate}}"
+                selected="table.selected"
+                query="table.query"
+                on-edit="onEdit($event,target)"
+                on-delete="onDelete($event,target)"
+                delete-permission="user.delete"
+                edit-permission="user.edit"
+        >
+        </ix-table-toolbar>
+        <md-table-container>
+            <table md-table md-row-select ng-model="table.selected" md-progress="promise">
+                <thead md-head md-order="table.query.order">
+                <tr md-row>
+                    <th md-column md-order-by="givenName">{{'label.name' | translate}}</th>
+                    <th md-column md-order-by="email">{{'label.email' | translate}}</th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row md-select="entity" md-select-id="{{entity.id}}" md-auto-select ng-repeat="entity in table.data.list">
+                    <td md-cell>{{entity.givenName}} {{entity.familyName}}</td>
+                    <td md-cell>{{entity.email}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="table.query.limit" md-page="table.query.page" md-total="{{table.data.count}}"
+        md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"></md-table-pagination>
+    </md-card>
+
+</md-content>
+<md-button class="md-fab md-fab-bottom-right main-fab"
+           aria-label="{{'action.add' | translate}}"
+           show-with-permission="user.create"
+           ng-click="showForm($event)">
+    <ng-md-icon icon="add" style="fill: white"></ng-md-icon>
+</md-button>

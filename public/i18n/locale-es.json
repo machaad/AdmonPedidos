@@ -1,0 +1,126 @@
+{
+  "app" : {
+    "name" : "Casa Verde"
+  },
+  "menu" : {
+    "title" : "menu",
+    "app" : {
+      "view1" : "Vista ejemplo 1",
+      "view2" : "Vista ejemplo 2",
+      "userList" : "Usuarios",
+      "roleList" : "Roles",
+      "settings" : "Configuración",
+      "etiquetas" : "Etiquetas",
+      "producto" : "Productos",
+       "channel" : "Canales",
+    
+      "apkManagerList" : "Administrar de Aplicaciones"
+    }
+  },
+  "error" : {
+    "field" : {
+      "default" : {
+        "required" : "Este campo es requerido",
+        "email" : "No es un email valido",
+        "minlength" : "Es muy corto",
+        "maxlength" : "Es muy largo",
+        "match" : "No coinciden",
+        "number" : "El campo debe de ser un numero valido",
+        "minimumVersion" : "El número de versión es invalido o es menor a la versión actual"
+      }
+
+    },
+    "user.email.notUnique" : "Ya existe un usuario con ese mismo email",
+    "auth" : {
+      "invalidCredentials" : "Email y/o contraseña invalido"
+    },
+    "server" : {
+      "apkManager" : {
+        "file" : {
+          "invalidFormat" : "El archivo seleccionado no es un APK"
+        },
+        "version" : {
+          "invalidVersion" : "La version del APK es invalida",
+          "lowerVersion" : "La versión del APK debe de ser mayor a la actual"
+        }
+      },
+      "httpCode": {
+        "500" : "Ha ocurrido un error inesperado en el servidor de aplicación",
+        "401" : "Es necesario que inicie sesión nuevamente",
+        "403" : "Parece que no tiene permitido ejecutar esta acción, se requiere un nuevo inicio de sesión."
+      }
+    }
+  },
+  "label" : {
+    "name" : "Nombre",
+    "lastName" : "Apellido",
+    "roles" : "Roles",
+    "permissions": "Permisos",
+    "module" : "Modulo",
+    "excludedActions" : "Acciones Excluidas",
+    "email" : "Email",
+    "emailAlias" : "Alias",
+    "password" : "Contraseña",
+    "forgotPassword" : "Olvidaste tu contraseña?",
+    "selectedRow" : "Fila seleccionada",
+    "selectedRows" : "Filas seleccionadas",
+    "host" : "Host",
+    "port" : "Puerto",
+    "user" : "Usuario",
+    "packageName" : "Paquete",
+    "launcherClass" : "Clase launcher",
+    "desc" : "Descripcion",
+    "sku" : "SKU",
+ 
+ 
+    "version" : "Versión"
+  },
+  "tooltip" : {
+    "emailAlias" : "Mascara que aparece como nombre del email en lugar de su dirección",
+    "enableMockEmail" : "Si está habilitado no se enviara ningún correo a los destinatarios, en lugar de eso se guardaran en el log de la aplicación",
+    "testEmail" : "Se enviará un correo a su cuenta de usuario para que valide que la configuración funciona"
+  },
+  "action" : {
+    "ok" : "Ok",
+    "cancel" : "Cancelar",
+    "login" : "Iniciar Sesión",
+    "logout" : "Cerrar Sesión",
+    "search" : "Buscar",
+    "back" : "Regresar",
+    "delete" : "Borrar",
+    "enableTLS" : "Habilitar TLS (Transport Layer Security)",
+    "enableAuth" : "Autenticación",
+    "enableMockEmail" : "Simular emails en consola",
+    "confirm": "Confirmar",
+    "test": "Probar",
+    "uploadApk" : "Subir apk",
+    "add" : "Agregar",
+    "edit" : "Editar",
+    "save" : "Guardar"
+  },
+ "view" :{
+   "apkManager" :{
+     "title" : "Aplicaciones disponibles",
+     "formTitle" : "Nueva aplicación"
+   },
+   "settings" : {
+     "emailConfiguration" : {
+       "title" : "Configuración de Email"
+     }
+   },
+   "passwordRecovery": {
+     "title" : "Recuperación de contraseña"
+   },
+   "login" : {
+     "msg" : {
+       "passwordSent" : "Se ha enviado un correo con su nueva contraseña"
+     }
+   },
+   "role" : {
+     "title" : "Rol"
+   },
+   "user" : {
+     "title" : "Usuario"
+   }
+ }
+}

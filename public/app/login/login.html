@@ -1,0 +1,42 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <h1>
+            <span>{{'app.name' | translate}}</span>
+        </h1>
+        <span flex></span>
+    </div>
+</md-toolbar>
+
+<md-content layout="row" layout-padding layout-wrap layout-fill>
+    <div flex></div>
+    <md-whiteframe flex layout="column" class="md-whiteframe-1dp">
+        <form name="form">
+            <md-input-container class="md-block">
+                <label>{{'label.email' | translate}}</label>
+                <input
+                        ng-model="data.email"
+                        name="email"
+                        type="email"
+                        required>
+                <div ng-messages="form.email.$error" ng-if='form.$dirty'>
+                    <div ng-messages-include="template/default.messages.html"></div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>{{'label.password' | translate}}</label>
+                <input
+                        name="password"
+                        ng-model="data.password"
+                        type="password"
+                        required >
+                <div ng-messages="form.password.$error" ng-if='form.$dirty'>
+                    <div ng-messages-include="template/default.messages.html"></div>
+                </div>
+            </md-input-container>
+        </form>
+        <md-button class="md-accent md-raised md-hue-6" ng-click="login()">{{'action.login' | translate}}</md-button>
+        <md-button class="md-primary md-flat md-hue-6" ng-click="passwordRecovery($event)">{{'label.forgotPassword' | translate}}
+        </md-button>
+    </md-whiteframe>
+    <div flex></div>
+</md-content>

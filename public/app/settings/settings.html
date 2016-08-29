@@ -1,0 +1,102 @@
+<md-content>
+    <form name="entityForm" ng-submit="submit()">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card>
+                <md-progress-linear md-mode="indeterminate" ng-show="emailBusy"></md-progress-linear>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{'view.settings.emailConfiguration.title' | translate }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>{{'label.host' | translate}}</label>
+                            <input
+                                    name="host"
+                                    ng-model="entry.email['mail.smtp.host']"
+                                    ng-disabled="entry.email['mail.mock']"
+                                    required>
+                            <div ng-messages="entityForm.host.$error">
+                                <div ng-messages-include="template/default.messages.html"></div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>{{'label.port' | translate}}</label>
+                            <input type="number"
+                                   name="port"
+                                   ng-model="entry.email['mail.smtp.port']"
+                                   ng-disabled="entry.email['mail.mock']"
+                                   required>
+                            <div ng-messages="entityForm.port.$error">
+                                <div ng-messages-include="template/default.messages.html"></div>
+                            </div>
+                        </md-input-container>
+                    </div>
+
+
+                    <div layout-gt-sm="row" >
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>{{'label.email' | translate}}</label>
+                            <input
+                                    name="email"
+                                    type="email"
+                                    ng-model="entry.email['mail.user']"
+                                    ng-disabled="entry.email['mail.mock']"
+                                    required
+                            >
+                            <div ng-messages="entityForm.email.$error">
+                                <div ng-messages-include="template/default.messages.html"></div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>{{'label.password' | translate}}</label>
+                            <input
+                                    name="password"
+                                    ng-model="entry.email['mail.password']"
+                                    ng-disabled="entry.email['mail.mock']"
+                                    required
+                            >
+                            <div ng-messages="entityForm.password.$error">
+                                <div ng-messages-include="template/default.messages.html"></div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>{{'label.emailAlias' | translate}}</label>
+                            <input ng-model="entry.email['mail.alias']" ng-disabled="entry.email['mail.mock']">
+                                <md-tooltip>
+                                    {{'tooltip.emailAlias' | translate}}
+                                </md-tooltip>
+                            </input>
+                        </md-input-container>
+                    </div>
+
+                    <md-switch ng-model="entry.email['mail.smtp.starttls.enable']" aria-label="{{'action.enableTLS' | translate}}" ng-disabled="entry.email['mail.mock']">
+                        {{'action.enableTLS' | translate}}
+                    </md-switch>
+                    <md-switch ng-model="entry.email['mail.smtp.auth']"  aria-label="{{'action.enableAuth' | translate}}" ng-disabled="entry.email['mail.mock']">
+                        {{'action.enableAuth' | translate}}
+                    </md-switch>
+                    <md-switch ng-model="entry.email['mail.mock']"  aria-label="{{'action.enableMockEmail' | translate}}">
+                        {{'action.enableMockEmail' | translate}}
+                        <md-tooltip>
+                            {{'tooltip.enableMockEmail' | translate}}
+                        </md-tooltip>
+                    </md-switch>
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-click="testEmail()" ng-disabled="entityForm.$invalid || emailBusy">{{'action.test' | translate}}
+                        <md-tooltip>
+                            {{'tooltip.testEmail' | translate}}
+                        </md-tooltip></md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </form>
+
+</md-content>
+<md-button class="md-fab md-fab-bottom-right"
+           aria-label="{{'action.save' | translate}}"
+           ng-click="submit($event)" ng-disabled="entityForm.$invalid">
+    <ng-md-icon icon="save" style="fill: white"></ng-md-icon>
+</md-button>

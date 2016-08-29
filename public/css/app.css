@@ -1,0 +1,29 @@
+/* app css stylesheet */
+
+/* app css stylesheet */
+
+.side-menu{
+
+}
+.side-menu .active{
+  background-color:#f4f4f4 !important;
+  filter: alpha(opacity=50);
+}
+.side-menu .active > a{
+  font-weight:bold;
+}
+
+.toolbar-search-fix{
+  padding-top : 25px;
+}
+.md-table-pagination {
+  justify-content: flex-start !important;
+}
+
+.md-select-menu.md-default-theme md-option[selected], md-select-menu md-option[selected] {
+  background-color:#d5ffdc !important;
+}
+
+.ng-hide.ng-hide-animate{
+  display: none !important;
+}

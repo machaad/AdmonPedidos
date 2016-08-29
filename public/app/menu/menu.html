@@ -1,0 +1,48 @@
+<div layout="column">
+    <div layout="row" flex>
+        <md-sidenav layout="column"
+                    class="md-sidenav-left md-whiteframe-z2"
+                    md-component-id="left"
+                    md-theme="menu-theme"
+                    md-is-locked-open="$mdMedia('gt-md')"
+                    style="height: 100vh;"
+        >
+            <md-toolbar>
+                <h1 class="md-toolbar-tools">{{'menu.title' | translate | uppercase}}</h1>
+            </md-toolbar>
+            <md-content layout="column" flex>
+                <md-list class="side-menu" >
+                    <md-list-item ng-repeat="option in menu" ui-sref="{{option.state}}" ui-sref-active="md-primary md-raised" ng-click="close()">
+                        <ng-md-icon icon="{{option.icon}}"></ng-md-icon>
+                        <p>{{'menu.' + option.state | translate}}</p>
+                    </md-list-item>
+                    <md-list-item ng-click="logout()" href="">
+                        <ng-md-icon icon="logout"></ng-md-icon>
+                        <p>{{'action.logout' | translate}}</p>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </md-sidenav>
+        <div layout="column" flex id="content">
+            <md-toolbar layout="row">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" ng-click="_menu.toggle()" hide-gt-md aria-label="menu">
+                        <ng-md-icon icon="menu" style="fill: white" ></ng-md-icon>
+                    </md-button>
+                    <h2>
+                        <span>{{'app.name' | translate}}</span>
+                    </h2>
+                    <span flex></span>
+                    <!--<md-button class="md-icon-button" aria-label="Favorite">-->
+                        <!--<ng-md-icon icon="thumb_up" style="fill: white"></ng-md-icon>-->
+                    <!--</md-button>-->
+                    <!--<md-button class="md-icon-button" aria-label="More">-->
+                        <!--<ng-md-icon icon="more_vert" style="fill: white"></ng-md-icon>-->
+                    <!--</md-button>-->
+                </div>
+
+            </md-toolbar>
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

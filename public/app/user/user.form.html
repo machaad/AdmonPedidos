@@ -1,0 +1,87 @@
+<md-dialog flex="50" >
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{'view.user.title' | translate}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()" aria-label="{{'action.ok' | translate}}">
+                <ng-md-icon icon="close" style="fill: white"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content layout-padding >
+        <form name="entityForm" ng-submit="submit()">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'label.name' | translate}}</label>
+                    <input
+                            name="givenName"
+                            ng-model="entity.givenName"
+                            type="text"
+                            required>
+                    <div ng-messages="entityForm.givenName.$error">
+                        <div ng-messages-include="template/default.messages.html"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>{{'label.lastName' | translate}}</label>
+                    <input
+                            name="familyName"
+                            ng-model="entity.familyName"
+                            type="text"
+                            required>
+                    <div ng-messages="entityForm.familyName.$error">
+                        <div ng-messages-include="template/default.messages.html"></div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <md-input-container class="md-block">
+                <label>{{'label.email' | translate}}</label>
+                <input
+                        name="email"
+                        ng-model="entity.email"
+                        type="email"
+                        required>
+                <div ng-messages="entityForm.email.$error">
+                    <div ng-messages-include="template/default.messages.html"></div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>{{'label.roles' | translate}}</label>
+                <md-select ng-model="entity.roles" ng-model-options="{trackBy: '$value.id'}" multiple="true">
+                    <md-option ng-value="item" ng-repeat="item in misc.roles">{{ item.name }}</md-option>
+                </md-select>
+            </md-input-container>
+            <h4 class="md-title">Seguridad</h4>
+
+            <md-input-container class="md-block">
+                <label>{{'label.password' | translate}}</label>
+                <input name="password" ng-model="entity.password" type="password">
+                <div ng-messages="entityForm.password.$error">
+                    <div ng-message="required">Requerido</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>{{'action.confirm' | translate}}</label>
+                <input name="confirmPassword" ng-model="confirmPassword"
+                       password-confirm
+                       match-target="entity.password"
+                       type="password">
+                <div ng-messages="entityForm.confirmPassword.$error">
+                    <div ng-messages-include="template/default.messages.html"></div>
+                </div>
+            </md-input-container>
+
+        </form>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <span flex></span>
+        <md-button ng-click="cancel()" aria-label="{{'action.cancel' | translate}}">{{'action.cancel' | translate}}</md-button>
+        <md-button md-no-ink class="md-primary" ng-disabled="entityForm.$invalid" ng-click="submit()"
+                   aria-label="{{'action.ok' | translate}}">{{'action.ok' | translate}}</md-button>
+
+    </md-dialog-actions>
+</md-dialog>

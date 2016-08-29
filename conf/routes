@@ -1,0 +1,47 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+GET           /                                                 controllers.Assets.at(path="/public", file="/index.html")
+OPTIONS       /*all                                             controllers.AuthCtrl.preflight(all)
+# API resources
+POST        /api/v1/auth/signIn               			 controllers.AuthCtrl.login()
+
+GET           /api/v1/crud/user                          controllers.UserCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
+GET           /api/v1/crud/user/:id                      controllers.UserCtrl.get(id : Long)
+POST          /api/v1/crud/user                          controllers.UserCtrl.post()
+PUT           /api/v1/crud/user/                      	 controllers.UserCtrl.put()
+DELETE        /api/v1/crud/user/:id                      controllers.UserCtrl.delete(id : Long)
+GET           /api/v1/user/passwordRecovery              controllers.UserCtrl.passwordRecovery(email : String)
+
+GET           /api/v1/crud/producto                      controllers.ProductoCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
+
+GET           /api/v1/crud/etiquetas 					controllers.EtiquetasCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
+GET           /api/v1/crud/etiquetas/:id                controllers.EtiquetasCtrl.get(id : Long)
+POST          /api/v1/crud/etiquetas                    controllers.EtiquetasCtrl.post()
+PUT           /api/v1/crud/etiquetas/                   controllers.EtiquetasCtrl.put()
+DELETE        /api/v1/crud/etiquetas/:id                controllers.EtiquetasCtrl.delete(id : Long)
+
+GET           /api/v1/crud/channel                       controllers.ChannelCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
+GET           /api/v1/crud/channel/:id                   controllers.ChannelCtrl.get(id : Long)
+POST          /api/v1/crud/channel                       controllers.ChannelCtrl.post()
+PUT           /api/v1/crud/channel/:id                   controllers.ChannelCtrl.put(id : Long)
+DELETE        /api/v1/crud/channel/:id                   controllers.ChannelCtrl.delete(id : Long)
+
+
+GET           /api/v1/crud/role                          controllers.RoleCtrl.getAll(order : String ?= null, limit : java.lang.Integer ?= 0,page : java.lang.Integer ?= 0,search : String ?= null,fields : java.util.List[String] ?= null)
+GET           /api/v1/crud/role/:id                      controllers.RoleCtrl.get(id : Long)
+POST          /api/v1/crud/role                          controllers.RoleCtrl.post()
+PUT           /api/v1/crud/role/                         controllers.RoleCtrl.put()
+DELETE        /api/v1/crud/role/:id                      controllers.RoleCtrl.delete(id : Long)
+
+
+GET           /api/v1/crud/settings                      controllers.SettingsCtrl.get()
+PUT           /api/v1/crud/settings                      controllers.SettingsCtrl.put()
+POST          /api/v1/settings/testEmail                 controllers.SettingsCtrl.testEmailSettings()
+
+GET           /api/v1/crud/module                       controllers.ModuleCtrl.getAll(id : String ?= null)
+
+
+# Map the JS resource paths
+GET        /*file                            controllers.Assets.versioned(path="/public", file: Asset)
+GET        /webjars/*file                    controllers.WebJarAssets.at(file)

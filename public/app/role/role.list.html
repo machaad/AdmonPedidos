@@ -1,0 +1,39 @@
+<md-content layout="column" flex>
+    <md-card>
+        <ix-table-toolbar
+                title="{{'menu.app.roleList'| translate}}"
+                selected="table.selected"
+                query="table.query"
+                on-edit="onEdit($event,target)"
+                on-delete="onDelete($event,target)"
+                delete-permission="role.delete"
+                edit-permission="role.edit"
+        >
+        </ix-table-toolbar>
+        <md-table-container>
+            <table md-table md-row-select ng-model="table.selected" md-progress="promise">
+                <thead md-head md-order="table.query.order">
+                <tr md-row>
+                    <th md-column md-order-by="name">{{'label.name' | translate}}</th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row md-select="entity" md-select-id="{{entity.email}}" md-auto-select ng-repeat="entity in table.data.list track by entity.id">
+                    <td md-cell>{{entity.name}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="table.query.limit" md-page="table.query.page" md-total="{{table.data.count}}"
+                             md-label="{page: 'Página:', rowsPerPage: {{'label.name' | translate}}, of: 'de'}"></md-table-pagination>
+
+    </md-card>
+
+</md-content>
+<md-button class="md-fab md-fab-bottom-right main-fab"
+           aria-label="{{'action.add' | translate}}"
+           ng-click="showForm($event)"
+           show-with-permission="role.create">
+    <ng-md-icon icon="add" style="fill: white"></ng-md-icon>
+</md-button>
