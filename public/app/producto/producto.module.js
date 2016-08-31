@@ -21,7 +21,7 @@
                     templateUrl: 'app/producto/producto.form.html',
                     parent: angular.element(document.body),
                     targetEvent: $event,
-                    clickOutsideToClose: false,
+                    clickOutsideToClose: true,
                     locals: {
                         target: target
                     },
@@ -43,8 +43,9 @@
 
     app.controller("ProductoFormCtrl", [
         '$scope', '$mdDialog', 'ArraySimpleFilter', 'ProductoService', 'target',
-        function ($scope, $mdDialog, ArraySimpleFilter, ProductoService, RoleService, target) {
+        function ($scope, $mdDialog, ArraySimpleFilter, ProductoService, target) {
             var isEdition = angular.isDefined(target);
+
             $scope.cancel = function () {
                 $mdDialog.cancel();
             };
@@ -57,7 +58,7 @@
                 }
                 $mdDialog.hide();
             };
-            
+
             if (target) {
             	ProductoService.get({id: target.id}, function (data) {
                     $scope.entity = data;

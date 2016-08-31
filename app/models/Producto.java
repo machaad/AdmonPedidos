@@ -19,7 +19,6 @@ public final  class Producto extends BaseEntity {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonView(View.Public.class)
     private Long id;
 
@@ -44,6 +43,15 @@ public final  class Producto extends BaseEntity {
       this.description=desc;
       this.sku=sku;
     }
+
+
+    @SuppressWarnings("deprecation")
+    public static final Finder<Long, Producto> find = new Finder<Long, Producto>(Long.class,Producto.class);
+
+
+    public static Finder<Long, Producto> getFind() {
+    		return find;
+    	}
 
 
 	public String getDescription() {
@@ -77,9 +85,5 @@ public final  class Producto extends BaseEntity {
 	public void setGivenName(String givenName) {
 		this.givenName = givenName;
 	}
-
-  @SuppressWarnings("deprecation")
-public static final Finder<Long, Producto> find = new Finder<Long, Producto>(Long.class,Producto.class);
-
 
 }

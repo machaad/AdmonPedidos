@@ -20,7 +20,7 @@ create table clients (
 ;
 
 create table producto (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   updated_by                bigint,
   created_by                bigint,
   created                   datetime,
@@ -160,6 +160,8 @@ create table user_role (
 ;
 create sequence clients_seq;
 
+create sequence producto_seq;
+
 create sequence s_action_seq;
 
 create sequence s_app_seq;
@@ -272,6 +274,8 @@ drop table if exists user_role;
 SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists clients_seq;
+
+drop sequence if exists producto_seq;
 
 drop sequence if exists s_action_seq;
 

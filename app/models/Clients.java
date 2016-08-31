@@ -37,6 +37,10 @@ public final  class Clients extends BaseEntity {
     @JsonView(View.Public.class)
     private String email;
 
+    public Clients(){
+
+    }
+
     public Clients(String name,String lastName,String maidenName,
     String address,String email){
       this.name=name;
@@ -49,10 +53,10 @@ public final  class Clients extends BaseEntity {
     @SuppressWarnings("deprecation")
     public static final Finder<Long, Clients> find = new Finder<Long, Clients>(Long.class,Clients.class);
 
-    public Clients(){
 
-    }
-
+    public static Finder<Long, Clients> getFind() {
+    		return find;
+    	}
 
 	/**
 	* Returns value of id
@@ -150,11 +154,4 @@ public final  class Clients extends BaseEntity {
 		this.email = email;
 	}
 
-	/**
-	* Returns value of find
-	* @return
-	*/
-	public static Finder<Long, Clients> getFind() {
-		return find;
-	}
 }

@@ -21,7 +21,7 @@
                     templateUrl: 'app/clients/clients.form.html',
                     parent: angular.element(document.body),
                     targetEvent: $event,
-                    clickOutsideToClose: false,
+                    clickOutsideToClose: true,
                     locals: {
                         target: target
                     },
