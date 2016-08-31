@@ -12,7 +12,7 @@
     app.controller("ClientsListCtrl", [
         '$scope', 'ClientsService', 'TableTemplateService', '$mdDialog', '$localStorage', '$rootScope',
         function ($scope, ClientsService, TableTemplateService, $mdDialog, $localStorage, $rootScope) {
-            var filterSearch = ["givenName"];
+            var filterSearch = ["name"];
             var table = TableTemplateService.setup($scope, ClientsService, filterSearch);
             $scope.clientsData = $localStorage.user;
             $scope.showForm = function ($event, target) {

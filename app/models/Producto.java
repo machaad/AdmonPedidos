@@ -35,6 +35,16 @@ public final  class Producto extends BaseEntity {
     @JsonView(View.Public.class)
     private String sku;
 
+    public Producto(){
+
+    }
+
+    public Producto(String name,String desc, String sku){
+      this.givenName=name;
+      this.description=desc;
+      this.sku=sku;
+    }
+
 
 	public String getDescription() {
 		return description;

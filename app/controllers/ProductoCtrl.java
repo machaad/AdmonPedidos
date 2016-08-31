@@ -38,7 +38,7 @@ public class ProductoCtrl extends Controller {
         return Controller.ok(toJson(Producto.find.query().findList()));
     }
 
-  /*  @Pattern(value = Module)
+    @Pattern(value = Module)
    public static Result get(long id){
        Producto entity;
        entity = Producto.find.byId(id);
@@ -46,7 +46,7 @@ public class ProductoCtrl extends Controller {
            return notFound();
        }
        return ok(JsonUtils.fromJsonView(entity, View.ProductoForm.class));
-   }*/
+   }
 
    @Pattern(Module + "." + SecurityAction.UPDATE)
       public static Result put(long id){

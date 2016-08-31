@@ -96,7 +96,17 @@ public class StartupData {
     }
 
     private void createClients(){
-      ;
+      for(int i = 1; i <= 10; i ++) {
+          String name = "Ciente" + i;
+          String lastName = "lastName" + i;
+          String maidenName = "maidenName" + i;
+          String address = "address" + i;
+          String email = "email" + i;
+
+          Clients clients= new Clients(name,lastName,maidenName,address,email);
+          clients.save();
+           }
+
     }
 
     private void createProducts(){
@@ -105,12 +115,8 @@ public class StartupData {
           String desc = "description" + i;
           String sku = "SKU" + i;
 
-          Producto producto= new Producto();
-          producto.setId((long ) i);
-          producto.setGivenName(name);
-          producto.setDescription(desc);
-          producto.setSku(sku);
-          producto	.save();
+          Producto producto= new Producto(name,desc,sku);
+          producto.save();
            }
 
     }

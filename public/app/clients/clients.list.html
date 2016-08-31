@@ -14,13 +14,20 @@
             <table md-table md-row-select ng-model="table.selected" md-progress="promise">
                 <thead md-head md-order="table.query.order">
                 <tr md-row>
-                    <th md-column md-order-by="givenName">{{'label.name' | translate}}</th>
+                    <th md-column md-order-by="name">{{'label.name' | translate}}</th>
+                    <th md-column md-order-by="name">{{'label.lastName' | translate}}</th>
+                    <th md-column md-order-by="name">{{'label.maidenName' | translate}}</th>
+                    <th md-column md-order-by="name">{{'label.email' | translate}}</th>
 
                 </tr>
                 </thead>
                 <tbody md-body>
                 <tr md-row md-select="entity" md-select-id="{{entity.id}}" md-auto-select ng-repeat="entity in table.data.list">
-                    <td md-cell>{{entity.givenName}}</td>
+                    <td md-cell>{{entity.name}}</td>
+                    <td md-cell>{{entity.lastName}}</td>
+                    <td md-cell>{{entity.maidenName}}</td>
+                    <td md-cell>{{entity.email}}</td>
+
                 </tr>
                 </tbody>
             </table>
@@ -33,7 +40,7 @@
 </md-content>
 <md-button class="md-fab md-fab-bottom-right main-fab"
            aria-label="{{'action.add' | translate}}"
-           show-with-permission="producto.create"
+           show-with-permission="clients.create"
            ng-click="showForm($event)">
     <ng-md-icon icon="add" style="fill: white"></ng-md-icon>
 </md-button>

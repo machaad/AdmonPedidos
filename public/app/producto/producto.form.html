@@ -9,7 +9,7 @@
         </div>
     </md-toolbar>
     <md-dialog-content layout-padding >
-        <form name="entityForm" ng-submit="submit()">
+        <form name="entity" ng-submit="submit()">
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>{{'label.name' | translate}}</label>
@@ -30,7 +30,7 @@
                             ng-model="entity.sku"
                             type="text"
                             required>
-                    <div ng-messages="entityForm.givenName.$error">
+                    <div ng-messages="entityForm.sku.$error">
                         <div ng-messages-include="template/default.messages.html"></div>
                     </div>
                 </md-input-container>
@@ -43,7 +43,7 @@
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>{{'label.desc' | translate}}</label>
                     <input
-                            name="givenName"
+                            name="description"
                             ng-model="entity.description"
                             type="text"
                             required>

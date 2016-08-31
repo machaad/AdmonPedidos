@@ -53,7 +53,9 @@
   },
   "label" : {
     "name" : "Nombre",
-    "lastName" : "Apellido",
+    "lastName" : "Apellido Paterno",
+    "maidenName" : "Apellido Materno",
+    "address" : "Dirección",
     "roles" : "Roles",
     "permissions": "Permisos",
     "module" : "Modulo",

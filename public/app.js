@@ -21,6 +21,7 @@
         'app.etiquetas',
         'app.producto',
         'app.clients'
+        
     ]);
 
     app.config([
@@ -39,11 +40,11 @@
         '$mdThemingProvider',
         function ($mdThemingProvider) {
             $mdThemingProvider.theme('default')
-                .primaryPalette('blue-grey')
-                .accentPalette('deep-orange');
+                .primaryPalette('indigo')
+                .accentPalette('indigo');
 
             $mdThemingProvider.theme('menu-theme', 'default')
-                .primaryPalette('blue-grey')
+                .primaryPalette('indigo')
                 .dark();
             // Configure a dark theme with primary foreground yellow
             $mdThemingProvider.theme('docs-dark', 'default')

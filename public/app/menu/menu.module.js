@@ -40,10 +40,11 @@
          */
         var menuInnerProperties = {
             apkManager : {icon : 'people',state:"app.apkManagerList"},
-            user : {icon : 'people',state:"app.userList"},
-            role : {icon : 'assignment_ind',state:"app.roleList"},
+            pedidos : {icon : 'material-icons',state:"app.userList"},
             producto : {icon : 'assignment',state:"app.producto"},
             clients :  {icon : 'contact_phone',state:"app.clients"},
+            user : {icon : 'people',state:"app.userList"},
+            role : {icon : 'assignment_ind',state:"app.roleList"},
             settings :  {icon : 'settings',state:"app.settings"}
         };
         $scope.menu = [];

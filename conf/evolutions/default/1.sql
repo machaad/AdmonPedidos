@@ -12,7 +12,7 @@ create table clients (
   name                      varchar(256) not null,
   last_name                 varchar(256) not null,
   maiden_name               varchar(256) not null,
-  adress                    varchar(256) not null,
+  address                   varchar(256) not null,
   email                     varchar(256) not null,
   constraint uq_clients_updated_by unique (updated_by),
   constraint uq_clients_created_by unique (created_by),
